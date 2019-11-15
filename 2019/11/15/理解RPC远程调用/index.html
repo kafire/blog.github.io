@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -42,9 +42,9 @@
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
     },
     sidebarPadding: 40
   };
@@ -54,13 +54,13 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解RPC远程调用">
 <meta property="og:url" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;2019&#x2F;11&#x2F;15&#x2F;%E7%90%86%E8%A7%A3RPC%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8&#x2F;index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="狂奔De丶蜗牛">
 <meta property="og:description" content="什么是RPC呢？百度百科给出的解释是这样的：“RPC（Remote Procedure Call Protocol）——远程过程调用协议，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议”。这个概念听起来还是比较抽象，没关系，继续往后看，后面概念性的东西，我会讲得足够清楚，让你完全掌握 RPC 的基础内容。 既 REST ，何 RPC ？ 在 OpenStack 里的进程">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;.info&#x2F;&#x2F;imgs&#x2F;1573804723492.jpg">
-<meta property="og:updated_time" content="2019-11-15T08:41:30.777Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;source&#x2F;imgs&#x2F;1573804723492.jpg">
+<meta property="og:updated_time" content="2019-11-15T08:58:58.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;.info&#x2F;&#x2F;imgs&#x2F;1573804723492.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;source&#x2F;imgs&#x2F;1573804723492.jpg">
 
 <link rel="canonical" href="https://blog.vulhub.info/2019/11/15/%E7%90%86%E8%A7%A3RPC%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/">
 
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>理解RPC远程调用 | Hexo</title>
+  <title>理解RPC远程调用 | 狂奔De丶蜗牛</title>
   
 
 
@@ -120,14 +120,14 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">狂奔De丶蜗牛</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -141,12 +141,12 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
   </ul>
@@ -174,7 +174,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.vulhub.info/2019/11/15/%E7%90%86%E8%A7%A3RPC%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -184,7 +184,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="狂奔De丶蜗牛">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -196,10 +196,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2019-11-15 16:28:15 / Modified: 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-15T16:28:15+08:00">2019-11-15</time>
+              <time title="创建时间：2019-11-15 16:28:15 / 修改时间：16:58:58" itemprop="dateCreated datePublished" datetime="2019-11-15T16:28:15+08:00">2019-11-15</time>
             </span>
 
           
@@ -225,6 +225,8 @@
 <p>2、为什么要采用RPC呢？</p>
 <p>首先，第一个问题：RPC 和 REST 区别是什么？</p>
 <p>你一定会觉得这个问题很奇怪，是的，包括我，但是你在网络上一搜，会发现类似对比的文章比比皆是，我在想可能很多初学者由于基础不牢固，才会将不相干的二者拿出来对比吧。既然是这样，那为了让你更加了解陌生的RPC，就从你熟悉得不能再熟悉的 REST 入手吧。</p>
+<a id="more"></a>
+
 <p><strong>01、所属类别不同</strong></p>
 <p>REST，是Representational State Transfer 的简写，中文描述表述性状态传递（是指某个瞬间状态的资源数据的快照，包括资源数据的内容、表述格式(XML、JSON)等信息。）</p>
 <p>REST 是一种软件架构风格。这种风格的典型应用，就是HTTP。其因为简单、扩展性强的特点而广受开发者的青睐。</p>
@@ -399,7 +401,7 @@
 <p>fanout：消息路由到多有绑定到该exchange的队列中。</p>
 <p>binding ：binding是用来描述exchange和queue之间的关系的概念，一个exchang可以绑定多个队列，这些关系由binding建立。前面说的binding key /binding pattern也是在binding中给出。</p>
 <p>为了让你明白这几者的关系，我画了一张模型图。</p>
-<p><img src="/.info//imgs/1573804723492.jpg" alt></p>
+<p><img src="/source/imgs/1573804723492.jpg" alt=""></p>
 
     </div>
 
@@ -450,10 +452,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -475,7 +477,7 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">2</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
   </nav>
@@ -506,10 +508,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">John Doe</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.5.0
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.5.0
   </div>
 
         
