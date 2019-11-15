@@ -52,17 +52,17 @@
 
   <meta name="description" content="什么是RPC呢？百度百科给出的解释是这样的：“RPC（Remote Procedure Call Protocol）——远程过程调用协议，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议”。这个概念听起来还是比较抽象，没关系，继续往后看，后面概念性的东西，我会讲得足够清楚，让你完全掌握 RPC 的基础内容。 既 REST ，何 RPC ？ 在 OpenStack 里的进程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解 RPC 远程调用">
-<meta property="og:url" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;2019&#x2F;11&#x2F;15&#x2F;%E7%90%86%E8%A7%A3%20RPC%20%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8&#x2F;index.html">
+<meta property="og:title" content="理解RPC远程调用">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;2019&#x2F;11&#x2F;15&#x2F;%E7%90%86%E8%A7%A3RPC%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="什么是RPC呢？百度百科给出的解释是这样的：“RPC（Remote Procedure Call Protocol）——远程过程调用协议，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议”。这个概念听起来还是比较抽象，没关系，继续往后看，后面概念性的东西，我会讲得足够清楚，让你完全掌握 RPC 的基础内容。 既 REST ，何 RPC ？ 在 OpenStack 里的进程">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;Users&#x2F;Jeff&#x2F;Public&#x2F;blog&#x2F;source&#x2F;_posts&#x2F;images&#x2F;1573804723492.jpg">
-<meta property="og:updated_time" content="2019-11-15T07:59:54.772Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;.info&#x2F;&#x2F;1573804723492.jpg">
+<meta property="og:updated_time" content="2019-11-15T08:29:49.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;Users&#x2F;Jeff&#x2F;Public&#x2F;blog&#x2F;source&#x2F;_posts&#x2F;images&#x2F;1573804723492.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;blog.vulhub.info&#x2F;.info&#x2F;&#x2F;1573804723492.jpg">
 
-<link rel="canonical" href="https://blog.vulhub.info/2019/11/15/%E7%90%86%E8%A7%A3%20RPC%20%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/">
+<link rel="canonical" href="https://blog.vulhub.info/2019/11/15/%E7%90%86%E8%A7%A3RPC%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>理解 RPC 远程调用 | Hexo</title>
+  <title>理解RPC远程调用 | Hexo</title>
   
 
 
@@ -175,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.vulhub.info/2019/11/15/%E7%90%86%E8%A7%A3%20RPC%20%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://blog.vulhub.info/2019/11/15/%E7%90%86%E8%A7%A3RPC%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          理解 RPC 远程调用
+          理解RPC远程调用
         </h1>
 
         <div class="post-meta">
@@ -199,7 +199,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-11-15 15:53:26 / Modified: 15:59:54" itemprop="dateCreated datePublished" datetime="2019-11-15T15:53:26+08:00">2019-11-15</time>
+              <time title="Created: 2019-11-15 16:28:15 / Modified: 16:29:49" itemprop="dateCreated datePublished" datetime="2019-11-15T16:28:15+08:00">2019-11-15</time>
             </span>
 
           
@@ -399,7 +399,7 @@
 <p>fanout：消息路由到多有绑定到该exchange的队列中。</p>
 <p>binding ：binding是用来描述exchange和queue之间的关系的概念，一个exchang可以绑定多个队列，这些关系由binding建立。前面说的binding key /binding pattern也是在binding中给出。</p>
 <p>为了让你明白这几者的关系，我画了一张模型图。</p>
-<p><img src="/Users/Jeff/Public/blog/source/_posts/images/1573804723492.jpg" alt=""></p>
+<p><img src="/.info//1573804723492.jpg" alt></p>
 
     </div>
 
